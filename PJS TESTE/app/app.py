@@ -8,10 +8,10 @@ app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
 # Configura o caminho do banco de dados (ajuste se necessário)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../inventarioTi.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Desativa modificações de rastreamento (opcional)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
 # Inicializa a conexão do Flask com o banco de dados
 db.init_app(app)
-# Garantir que as tabelas sejam criadas ao iniciar a aplicação
+
 with app.app_context():
     db.create_all()
 
@@ -254,12 +254,12 @@ def removerLaptop(id):
 
     if laptop:
         hardware=laptop.hardware
-        db.session.delete(laptop)  # Exclui o laptop
-        db.session.delete(hardware)  # Remove o hardware
-        db.session.commit()  # Confirma as exclusões
-        # Confirma a exclusão
+        db.session.delete(laptop) 
+        db.session.delete(hardware)  
+        db.session.commit()  
+       
 
-    return redirect(url_for('listarLaptop'))  # Redireciona para a página de listagem
+    return redirect(url_for('listarLaptop'))
 
 @app.route('/removerTablet/<int:id>', methods=['POST'])
 def removerTablet(id):
@@ -267,12 +267,12 @@ def removerTablet(id):
 
     if tablet:
         hardware=tablet.hardware
-        db.session.delete(tablet)  # Exclui o laptop
-        db.session.delete(hardware)  # Remove o hardware
-        db.session.commit()  # Confirma as exclusões
-        # Confirma a exclusão
+        db.session.delete(tablet) 
+        db.session.delete(hardware) 
+        db.session.commit()  
+        
 
-    return redirect(url_for('listarTablet'))  # Redireciona para a página de listagem
+    return redirect(url_for('listarTablet'))  
 
 
 @app.route('/removerDesktop/<int:id>', methods=['POST'])
@@ -281,12 +281,12 @@ def removerDesktop(id):
 
     if desktop:
         hardware=desktop.hardware
-        db.session.delete(desktop)  # Exclui o laptop
-        db.session.delete(hardware)  # Remove o hardware
-        db.session.commit()  # Confirma as exclusões
-        # Confirma a exclusão
+        db.session.delete(desktop)  
+        db.session.delete(hardware)  
+        db.session.commit() 
+       
 
-    return redirect(url_for('listarDesktop'))  # Redireciona para a página de listagem
+    return redirect(url_for('listarDesktop')) 
 
 
 @app.route('/removerOutrosHardware/<int:id>', methods=['POST'])
@@ -299,8 +299,7 @@ def removerOutrosHardware(id):
 
     return redirect(url_for('listarOutrosHardware'))
 
-#Remover Perifericos
-#Remover Pendrive
+
 
 @app.route('/removerPenDrive/<int:id>', methods=['POST'])
 def removerPenDrive(id):
@@ -308,12 +307,12 @@ def removerPenDrive(id):
 
     if pen_drive:
         periferico=pen_drive.periferico
-        db.session.delete(pen_drive)  # Exclui o laptop
-        db.session.delete(periferico)  # Remove o hardware
-        db.session.commit()  # Confirma as exclusões
-        # Confirma a exclusão
+        db.session.delete(pen_drive)  
+        db.session.delete(periferico) 
+        db.session.commit() 
+      
 
-    return redirect(url_for('listarPenDrive'))  # Redireciona para a página de listagem
+    return redirect(url_for('listarPenDrive')) 
 
 #Remover Monitor
 @app.route('/removerMonitor/<int:id>', methods=['POST'])
@@ -322,12 +321,12 @@ def removerMonitor(id):
 
     if monitor:
         periferico=monitor.periferico
-        db.session.delete(monitor)  # Exclui o laptop
-        db.session.delete(periferico)  # Remove o hardware
-        db.session.commit()  # Confirma as exclusões
-        # Confirma a exclusão
+        db.session.delete(monitor)  
+        db.session.delete(periferico)  
+        db.session.commit()  
+      
 
-    return redirect(url_for('listarMonitor'))  # Redireciona para a página de listagem
+    return redirect(url_for('listarMonitor')) 
 
 #Remover Cadeira
 @app.route('/removerCadeira/<int:id>', methods=['POST'])
@@ -336,12 +335,12 @@ def removerCadeira(id):
 
     if cadeira:
         periferico=cadeira.periferico
-        db.session.delete(cadeira)  # Exclui o laptop
-        db.session.delete(periferico)  # Remove o hardware
-        db.session.commit()  # Confirma as exclusões
-        # Confirma a exclusão
+        db.session.delete(cadeira)  
+        db.session.delete(periferico)  
+        db.session.commit()  
+       
 
-    return redirect(url_for('listar_cadeira'))  # Redireciona para a página de listagem
+    return redirect(url_for('listar_cadeira')) 
 
 #Remover Outros Perifericos
 @app.route('/removerOutrosPerifericos/<int:id>', methods=['POST'])
@@ -349,12 +348,12 @@ def removerOutrosPerifericos(id):
     outro_periferico = OutrosPeriferico.query.get(id)
 
     if outro_periferico:
-        db.session.delete(outro_periferico)  # Exclui o laptop
-        db.session.commit()  # Confirma as exclusões
-        # Confirma a exclusão
+        db.session.delete(outro_periferico) 
+        db.session.commit()  
+       
 
-    return redirect(url_for('listarOutrosPeriferico'))  # Redireciona para a página de listagem
-# Roda a aplicação Flask
+    return redirect(url_for('listarOutrosPeriferico'))  
+
 if __name__ == '__main__':
     app.run(debug=True)
 

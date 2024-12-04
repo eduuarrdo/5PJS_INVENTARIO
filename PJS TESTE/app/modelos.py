@@ -15,7 +15,6 @@ class Hardware(db.Model):
     desktop = db.relationship('Desktop', backref='hardware', uselist=False)
     laptop = db.relationship('Laptop', backref='hardware', uselist=False)
     tablet = db.relationship('Tablet', backref='hardware', uselist=False)
-    # Não há relação direta com o Periferico (como o Monitor), pois são tabelas separadas
 
 # Classe para Desktop
 class Desktop(db.Model):
@@ -35,7 +34,7 @@ class Tablet(db.Model):
     id_hardware = db.Column(db.Integer, db.ForeignKey('hardware.id_patrimonio'), primary_key=True)
     marca = db.Column(db.String, nullable=True)
 
-# Classe para outros tipos de Hardware que não se relacionam com a tabela Hardware
+# Classe para outros tipos de Hardwarere
 class OutrosHardware(db.Model):
     __tablename__ = 'outros_hardware'
     id_patrimonio = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -60,7 +59,7 @@ class Cadeira(db.Model):
     id_periferico = db.Column(db.Integer, db.ForeignKey('periferico.id_patrimonio'), primary_key=True)
     modelo = db.Column(db.String, nullable=True)
 
-# Classe para Monitor (relacionada com Periferico)
+# Classe para Monitor
 class Monitor(db.Model):
     __tablename__ = 'monitor'
     id_periferico = db.Column(db.Integer, db.ForeignKey('periferico.id_patrimonio'), primary_key=True)
@@ -74,7 +73,7 @@ class PenDrive(db.Model):
     id_periferico = db.Column(db.Integer, db.ForeignKey('periferico.id_patrimonio'), primary_key=True)
     capacidade = db.Column(db.String, nullable=True)
 
-# Classe para Outros Periféricos
+# Classe para outros Perifericos
 class OutrosPeriferico(db.Model):
     __tablename__ = 'outros_periferico'
     id_patrimonio = db.Column(db.Integer, primary_key=True, autoincrement=True)

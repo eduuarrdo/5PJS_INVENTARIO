@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventário T.I. - Listar Outros Hardware</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styleLista.css') }}"/>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">INVENTÁRIO T.I.</h1>
+
+        <div class="section-title">Dados do Dispositivo</div>
+
+        <div class="device-type">Outros Hardware</div>
+
+        <table class="device-table">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for outro_hardware in outros_hardwares %}
+                <tr>
+                    <td>{{ outro_hardware.tipo }}</td>
+                    <td>{{ outro_hardware.descricao }}</td>
+                       <td>
+                        <form action="{{ url_for('removerOutrosHardware', id=outro_hardware.id_patrimonio) }}" method="POST" style="display: inline;">
+                            <button type="submit" class="btn btn-delete">Remover</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="back-button">
+            <button onclick="window.location.href='/'">Voltar ao Menu</button>
+        </div>
+    </div>
+</body>
+</html>

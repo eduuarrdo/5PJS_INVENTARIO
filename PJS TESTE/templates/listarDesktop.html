@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventário T.I. - Listar Desktops</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styleLista.css') }}"/>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Inventário T.I.</h1>
+
+        <h2 class="section-title">Dispositivos - Desktop</h2>
+
+        <table class="device-table">
+            <thead>
+                <tr>
+                    {#<th>ID</th>#}
+                    <th>RAM</th>
+                    <th>CPU</th>
+                    <th>Sistema Operacional</th>
+                    <th>Status</th>
+                    <th>Placa de Vídeo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for desktop in desktops %}
+                <tr>
+                    {#<td>{{ desktop.hardware.id_patrimonio }}</td>#}  <!-- Exibe o ID do hardware -->
+                    <td>{{ desktop.hardware.ram }}</td>
+                    <td>{{ desktop.hardware.cpu }}</td>
+                    <td>{{ desktop.hardware.sistema_operacional }}</td>
+                    <td>{{ desktop.hardware.status }}</td>
+                    <td>{{ desktop.placa_video }}</td>
+                    <td>
+                        <form action="{{ url_for('removerDesktop', id=desktop.id_hardware) }}" method="POST" style="display: inline;">
+                            <button type="submit" class="btn btn-delete">Remover</button>
+                        </form>
+
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6">Nenhum Desktop encontrado.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="back-button">
+            <button onclick="window.location.href='/';">Voltar ao Menu</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario T.I.</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #334155;
+      color: #fff;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .card {
+      background-color: #475569;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .device-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1rem;
+    }
+
+    .info-row {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-row label {
+      font-weight: bold;
+      margin-bottom: 0.25rem;
+    }
+
+    .info-row input {
+      background-color: #e2e8f0;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+      color: #334155;
+    }
+
+    .register-btn {
+      margin-top: 1.5rem;
+      background-color: #c2410c;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .register-btn:hover {
+      background-color: #b45309;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Inventario T.I.</h1>
+    <div class="card">
+      <h2>Dados do Dispositivo</h2>
+      <!-- Formulário para capturar os dados -->
+      <form method="POST">
+        <div class="device-info">
+          <div class="info-row">
+            <label for="tipo">Tipo:</label>
+            <input type="text" id="tipo" name="tipo" value="">
+          </div>
+          <div class="info-row">
+            <label for="descricao">Descrição:</label>
+            <input type="text" id="descricao" name="descricao" value="">
+          </div>
+        </div>
+        <!-- Botão para enviar os dados do formulário -->
+        <button  type="submit" class="register-btn" onclick="window.location.href='/'">Cadastrar dispositivo</button>
+      </form>
+       <button class="register-btn" onclick="window.location.href='inserirPeriferico'">Voltar</button>
+    </div>
+  </div>
+</body>
+</html>

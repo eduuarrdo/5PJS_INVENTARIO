@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario T.I.</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"/>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Inventario T.I.</h1>
+    <div class="card">
+      <h2>Gerência de Dispositivos</h2>
+      <h3>Listar</h3>
+      <div class="buttons">
+        <button onclick="window.location.href='listarCadeira'">Cadeira</button>
+        <button onclick="window.location.href='listarMonitor'">Monitor</button>
+        <button onclick="window.location.href='listarPenDrive'">Pen-Drive</button>
+        <button onclick="window.location.href='listarOutrosPeriferico'">Outros</button>
+      </div>
+      <button class="logs-btn" onclick="window.location.href='listar'">Voltar</button>
+</body>
+</html>

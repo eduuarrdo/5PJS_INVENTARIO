@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventário T.I. - Listar Pen Drives</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styleLista.css') }}"/>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Inventário T.I.</h1>
+
+        <h2 class="section-title">Dispositivos - Pen Drives</h2>
+
+        <table class="device-table">
+            <thead>
+                <tr>
+                    <th>Marca</th>
+                    <th>Capacidade</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aqui será inserido dinamicamente os Pen Drives -->
+                {% for pen_drive in pen_drives %}
+                <tr>
+                    <td>{{ pen_drive.periferico.marca }}</td>
+                    <td>{{ pen_drive.capacidade }}</td>
+                     <td>{{ pen_drive.periferico.status }}</td>
+                    <td>
+                        <form action="{{ url_for('removerPenDrive', id=pen_drive.id_periferico) }}" method="POST" style="display: inline;">
+                            <button type="submit" class="btn btn-delete">Remover</button>
+                        </form>
+                    </td>
+
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="3">Nenhum Pen Drive registrado.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="back-button">
+            <button onclick="window.location.href='/'">Voltar ao Menu</button>
+        </div>
+    </div>
+</body>
+</html>

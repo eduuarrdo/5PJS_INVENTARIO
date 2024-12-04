@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario T.I.</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"/>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Inventario T.I.</h1>
+    <div class="card">
+      <h2>Gerência de Dispositivos</h2>
+      <div class="buttons">
+        <!-- Botões com evento onclick para redirecionamento -->
+        <button onclick="window.location.href='/inserirHardware'">Hardware</button>
+        <button onclick="window.location.href='/inserirPeriferico'">Periférico</button>
+      </div>
+       <button class="logs-btn" onclick="window.location.href='/'">Voltar</button>
+
+    </div>
+  </div>
+
+</body>
+</html>

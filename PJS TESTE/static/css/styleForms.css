@@ -1,4 +1,3 @@
-/* General Styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -29,7 +28,6 @@ h1, h2 {
   margin-bottom: 1.5rem;
 }
 
-/* Device Info Styles */
 .device-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -50,7 +48,6 @@ h1, h2 {
   color: #e2e8f0;
 }
 
-/* Button Styles */
 .register-btn {
   margin-top: 1.5rem;
   background-color: #c2410c;
